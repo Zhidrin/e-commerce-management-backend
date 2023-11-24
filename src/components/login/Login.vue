@@ -13,6 +13,7 @@
     <div class="input">
       <el-input
         v-model="password"
+        prefix-icon="el-icon-user"
         placeholder="请输入密码"
         auto-complete="new-password"
         show-password
@@ -21,7 +22,7 @@
     <div class="input">
       <el-button
         type="primary"
-        style="500px"
+        style="width: 500px"
         @click="login"
         :disabled="disabled"
         >登录</el-button
@@ -46,20 +47,25 @@ export default {
     this.name = "";
     this.password = "";
   },
+  computed: {
+    disabled() {
+      return this.name === "" || this.password === "";
+    },
+  },
   methods: {
     login() {
-      Storage.commit('registUserInfo', {
+      Storage.commit("registUserInfo", {
         name: this.name,
-        password: this.password
-      })
-      ElMessage(() => {
-        message: '登陆成功！',
-        type: 'success',
-        duration: 1500
-      })
+        password: this.password,
+      });
+      ElMessage({
+        message: "登陆成功！",
+        type: "success",
+        duration: 1500,
+      });
       setTimeout(() => {
-        this.$router.push({name: 'home'})
-      }, 1500)
+        this.$router.push({ name: "home" });
+      }, 1500);
     },
   },
 };
@@ -70,7 +76,7 @@ export default {
   background-color: #595959;
   background-image: url("~@/assets/login_bg.jpg");
   height: 100%;
-  widows: 100%;
+  width: 100%;
   position: absolute;
 }
 #title {
