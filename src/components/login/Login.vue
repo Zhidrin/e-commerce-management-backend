@@ -65,7 +65,7 @@ export default {
       });
       setTimeout(() => {
         this.$router.push({ name: "home" });
-      }, 1500);
+      }, 1000);
     },
   },
 };
@@ -75,6 +75,9 @@ export default {
 #container {
   background-color: #595959;
   background-image: url("~@/assets/login_bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
   position: absolute;

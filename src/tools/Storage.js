@@ -9,18 +9,25 @@ const Store = createStore({
     };
   },
   getters: {
-    isLogin: (state) => {
-      return state.username.length > 0;
+    isLogin: () => {
+      return JSON.parse(localStorage.getItem("login"));
     },
   },
-  mutationsL: {
+  mutations: {
+    // 用户登出状态
     clearUserInfo(state) {
       state.username = "";
       state.password = "";
+      localStorage.removeItem("login");
     },
+    // 用户登录状态
     registUserInfo(state, { name, password }) {
       state.username = name;
       state.password = password;
+      localStorage.setItem(
+        "login",
+        JSON.stringify({ name: name, password: password })
+      );
     },
   },
 });
