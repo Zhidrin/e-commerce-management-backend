@@ -46,6 +46,7 @@ export default {
   mounted() {
     this.name = "";
     this.password = "";
+    this.$el.addEventListener("keydown", this.handleKeydown);
   },
   computed: {
     disabled() {
@@ -61,13 +62,20 @@ export default {
       ElMessage({
         message: "登陆成功！",
         type: "success",
-        duration: 1500,
+        duration: 1000,
       });
       setTimeout(() => {
-        this.$router.push({ name: "home" });
+        this.$router.push("/home");
       }, 1000);
     },
+    // 按回车登录
+    handleKeydown(e) {
+      if (e.key == "Enter" && !this.disabled) {
+        this.login();
+      }
+    },
   },
+  watch: {},
 };
 </script>
 

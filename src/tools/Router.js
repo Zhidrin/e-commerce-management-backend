@@ -3,12 +3,16 @@ import Login from "../components/login/Login.vue";
 import Home from "../components/home/Home.vue";
 import Order from "../components/order/Order.vue";
 import Store from "../tools/Storage";
-import Goods from "../component/goods/Goods.vue";
-import AddGood from "../component/goods/AddGood.vue";
+import Goods from "../components/goods/Goods.vue";
+import AddGood from "../components/goods/AddGood.vue";
 
 const Router = createRouter({
   history: createWebHashHistory(),
   routes: [
+    {
+      name: "/",
+      redirect: "/home",
+    },
     {
       path: "/login",
       component: Login,

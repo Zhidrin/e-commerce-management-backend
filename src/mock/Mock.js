@@ -33,6 +33,7 @@ export default {
           count: mockjs.Random.integer(10, 100),
           back: mockjs.Random.integer(10, 100),
           backPrice: mockjs.Random.integer(0, 5000) + "元",
+          owner: mockjs.Random.cname(),
           time: mockjs.Random.datetime("yyyy-MM-dd A HH:mm:ss"),
           state: mockjs.Random.boolean(),
         })
