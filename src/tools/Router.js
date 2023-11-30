@@ -5,6 +5,12 @@ import Order from "../components/order/Order.vue";
 import Store from "../tools/Storage";
 import Goods from "../components/goods/Goods.vue";
 import AddGood from "../components/goods/AddGood.vue";
+import GoodCategory from "../components/goods/GoodCategory.vue";
+import ManagerList from "../components/manager/ManagerList.vue";
+import ManagerOrder from "../components/manager/ManagerOrder.vue";
+import ManagerReqList from "../components/manager/ManagerReqList.vue";
+import DataCom from "../components/financial/DataCom.vue";
+import TradeInfo from "../components/financial/TradeInfo.vue";
 
 const Router = createRouter({
   history: createWebHashHistory(),
@@ -40,6 +46,36 @@ const Router = createRouter({
           path: "addGood/:type",
           component: AddGood,
           name: "AddGood",
+        },
+        {
+          path: "category",
+          component: GoodCategory,
+          name: "GoodCategory",
+        },
+        {
+          path: "ownerlist",
+          component: ManagerList,
+          name: "ManagerList",
+        },
+        {
+          path: "ownerreq",
+          component: ManagerReqList,
+          name: "ManagerReqList",
+        },
+        {
+          path: "ownerorder",
+          component: ManagerOrder,
+          name: "ManagerOrder",
+        },
+        {
+          path: "data",
+          component: DataCom,
+          name: "DataCom",
+        },
+        {
+          path: "tradeInfo",
+          component: TradeInfo,
+          name: "TradeInfo",
         },
       ],
       redirect: "/home/order/0",

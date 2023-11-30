@@ -18,12 +18,14 @@
         </div>
       </el-container>
       <el-menu
-        :default-active="$router.path"
-        style="height: 100%"
-        background-color="#545c64"
-        text-color="#fff"
+        class="el-menu-vertical-demo"
+        default-active="$router.path"
         active-text-color="#ffd04b"
+        background-color="#545c64"
+        style="height: 100%"
+        text-color="#fff"
         @select="selectItem"
+        router
       >
         <el-submenu index="1">
           <template #title>
@@ -31,8 +33,10 @@
               <span>订单管理</span>
             </i>
           </template>
-          <el-menu-item index="/home/order/0"> 普通订单 </el-menu-item>
-          <el-menu-item index="/home/order/1"> 秒杀订单 </el-menu-item>
+          <el-menu-item-group>
+            <el-menu-item index="/home/order/0"> 普通订单 </el-menu-item>
+            <el-menu-item index="/home/order/1"> 秒杀订单 </el-menu-item>
+          </el-menu-item-group>
         </el-submenu>
         <el-submenu index="2">
           <template #title>
@@ -43,7 +47,7 @@
           <el-menu-item index="/home/goods/0"> 普通商品 </el-menu-item>
           <el-menu-item index="/home/goods/1"> 秒杀商品 </el-menu-item>
           <el-menu-item index="/home/goods/2"> 今日推荐 </el-menu-item>
-          <el-menu-item index="/home/categroy"> 商品分类 </el-menu-item>
+          <el-menu-item index="/home/category"> 商品分类 </el-menu-item>
         </el-submenu>
         <el-submenu index="3">
           <template #title>
