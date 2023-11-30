@@ -19,7 +19,7 @@
       </el-container>
       <el-menu
         class="el-menu-vertical-demo"
-        default-active="$router.path"
+        default-active="$route.path"
         active-text-color="#ffd04b"
         background-color="#545c64"
         style="height: 100%"
@@ -27,7 +27,7 @@
         @select="selectItem"
         router
       >
-        <el-submenu index="1">
+        <el-sub-menu index="1">
           <template #title>
             <i class="el-icon-s-order">
               <span>订单管理</span>
@@ -37,8 +37,8 @@
             <el-menu-item index="/home/order/0"> 普通订单 </el-menu-item>
             <el-menu-item index="/home/order/1"> 秒杀订单 </el-menu-item>
           </el-menu-item-group>
-        </el-submenu>
-        <el-submenu index="2">
+        </el-sub-menu>
+        <el-sub-menu index="2">
           <template #title>
             <i class="el-icon-s-shop">
               <span>商品管理</span>
@@ -48,8 +48,8 @@
           <el-menu-item index="/home/goods/1"> 秒杀商品 </el-menu-item>
           <el-menu-item index="/home/goods/2"> 今日推荐 </el-menu-item>
           <el-menu-item index="/home/category"> 商品分类 </el-menu-item>
-        </el-submenu>
-        <el-submenu index="3">
+        </el-sub-menu>
+        <el-sub-menu index="3">
           <template #title>
             <i class="el-icon-s-custom">
               <span>店长管理</span>
@@ -58,8 +58,8 @@
           <el-menu-item index="/home/ownerlist"> 店长列表 </el-menu-item>
           <el-menu-item index="/home/ownerreq"> 店长申请审批列表 </el-menu-item>
           <el-menu-item index="/home/ownerorder"> 店长订单 </el-menu-item>
-        </el-submenu>
-        <el-submenu index="4">
+        </el-sub-menu>
+        <el-sub-menu index="4">
           <template #title>
             <i class="el-icon-s-ticket">
               <span>财务管理</span>
@@ -67,15 +67,15 @@
           </template>
           <el-menu-item index="/home/tradeinfo"> 交易明细 </el-menu-item>
           <el-menu-item index="/home/tradelist"> 财务对账单 </el-menu-item>
-        </el-submenu>
-        <el-submenu index="5">
+        </el-sub-menu>
+        <el-sub-menu index="5">
           <template #title>
             <i class="el-icon-s-shop">
               <span>基础管理</span>
             </i>
           </template>
           <el-menu-item index="/home/data"> 数据统计 </el-menu-item>
-        </el-submenu>
+        </el-sub-menu>
       </el-menu>
     </el-aside>
     <el-main style="padding: 0">
@@ -91,7 +91,7 @@
           "
         >
           <div style="margin: auto; margin-left: 100px">
-            <h1>欢迎您登录后台管理系统，管理员用户！</h1>
+            <h1>欢迎您登录后台管理系统，{{ user.name }}！</h1>
           </div>
           <div style="margin: auto; margin-right: 100px">
             <el-button type="primary" @click="logout">注销</el-button>
@@ -108,6 +108,14 @@ import Storage from "../../tools/Storage";
 
 export default {
   name: `Login`,
+  data() {
+    return {};
+  },
+  computed: {
+    user() {
+      return JSON.parse(localStorage.getItem("login"));
+    },
+  },
   methods: {
     logout() {
       Storage.commit("clearUserInfo");
