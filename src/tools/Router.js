@@ -16,7 +16,7 @@ const Router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
-      name: "/",
+      path: "/",
       redirect: "/home",
     },
     {

@@ -1,4 +1,3 @@
-import { parseWidth } from "element-plus/es/components/table/src/util";
 import { createStore } from "vuex";
 
 const Store = createStore({
